@@ -2,6 +2,8 @@
 
 AWS Lambda functions are ran in a limited container with native libraries. This listing provides payloads that were identified to work in each function's runtime to demonstrate command injection. None of the payloads should rely on additional Lambda layers or 3rd party packages. This should result in generic payloads that can be used in each of the common runtime environments.
 
+If the payload requires pipes or redirectors you may need to borrow the `sh -c $@|sh . echo <command>` technique from [https://codewhitesec.blogspot.com/2015/03/sh-or-getting-shell-environment-from.html](https://codewhitesec.blogspot.com/2015/03/sh-or-getting-shell-environment-from.html)
+
 ## Generic
 
 Bash Reverse Shell
